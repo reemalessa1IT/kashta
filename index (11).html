@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>بكنك البنات 🧺 | نادي التقنية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun:wght@500;600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#f6a6c1; --pink-l:#fde3ec; --pink-d:#e2689a; --pink-dd:#b9457a;
+  --cream:#fffaf2; --paper:#fffdf8;
+  --straw:#ea5a66; --sage:#b7d8a8; --sage-d:#6aa46a; --leaf:#4f8a55;
+  --lav:#d6c4f3; --lav-d:#9b7fd4; --butter:#ffe7a3; --peach:#ffc9a9;
+  --ink:#5b3646; --muted:#a07f8d;
+  --gold:#f6c64f; --silver:#cfd5de; --bronze:#e7a57c;
+  --hfont:'Reem Kufi Fun',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100%}
+body{
+  font-family:'Tajawal',sans-serif; color:var(--ink);
+  background:linear-gradient(180deg,#ffe3ee 0%,#fff1e6 45%,#fff8ee 70%);
+  background-attachment:fixed;
+  min-height:100vh; overflow-x:hidden;
+}
+h1,h2,h3,.hf{font-family:var(--hfont)}
+
+/* ===== scene ===== */
+.scene{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.sun{position:absolute;top:70px;left:7%;width:110px;height:110px;border-radius:50%;
+  background:radial-gradient(circle,#fff3c4 0 45%,#ffe08a 46% 100%);
+  box-shadow:0 0 0 18px rgba(255,224,138,.25),0 0 0 40px rgba(255,224,138,.12);animation:spin 40s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.cloud{position:absolute;background:#fff;border-radius:60px;opacity:.9;animation:drift linear infinite}
+.cloud::before,.cloud::after{content:'';position:absolute;background:#fff;border-radius:50%}
+.cloud::before{width:55%;height:150%;top:-60%;right:15%}
+.cloud::after{width:40%;height:120%;top:-40%;left:12%}
+.c1{width:150px;height:44px;top:120px;animation-duration:70s;right:-200px}
+.c2{width:110px;height:34px;top:230px;animation-duration:95s;right:-200px;animation-delay:-40s;opacity:.7}
+.c3{width:180px;height:50px;top:40px;animation-duration:120s;right:-200px;animation-delay:-80s;opacity:.8}
+@keyframes drift{to{transform:translateX(calc(-100vw - 260px))}}
+.hills{position:absolute;bottom:0;left:0;width:100%;height:220px}
+.petal{position:absolute;top:-30px;font-size:18px;animation:petal linear infinite;opacity:.8}
+@keyframes petal{to{transform:translate(-80px,110vh) rotate(400deg)}}
+
+/* ===== bunting ===== */
+.bunting{position:relative;z-index:3;width:100%;height:78px;display:block}
+
+.wrap{max-width:780px;margin:0 auto;padding:0 16px 140px;position:relative;z-index:2}
+
+/* ===== paper card with washi tape ===== */
+.paper{
+  background:var(--paper); border-radius:26px; padding:30px 24px 26px; position:relative;
+  box-shadow:0 2px 0 #f1dde4, 0 14px 0 -4px rgba(226,104,154,.18), 0 24px 50px rgba(91,54,70,.13);
+  background-image:radial-gradient(rgba(246,166,193,.18) 1.2px, transparent 1.6px);
+  background-size:18px 18px;
+}
+.tape{position:absolute;width:110px;height:30px;opacity:.88;z-index:4;
+  background:repeating-linear-gradient(45deg,var(--pink) 0 8px,#fff 8px 16px);
+  box-shadow:0 2px 4px rgba(0,0,0,.08)}
+.tape.t1{top:-13px;right:28px;transform:rotate(6deg)}
+.tape.t2{top:-13px;left:28px;transform:rotate(-7deg);background:repeating-linear-gradient(-45deg,var(--sage) 0 8px,#fff 8px 16px)}
+.tape.lav{background:repeating-linear-gradient(45deg,var(--lav) 0 8px,#fff 8px 16px)}
+.tape.butter{background:repeating-linear-gradient(90deg,var(--butter) 0 10px,#fff 10px 20px)}
+
+.screen{display:none;animation:pop .45s cubic-bezier(.2,1.4,.4,1)}
+.screen.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:none}}
+
+/* ===== title ===== */
+.title-wrap{text-align:center;position:relative;margin-top:4px}
+.kicker{display:inline-flex;align-items:center;gap:8px;background:#fff;border:2px dashed var(--pink);
+  color:var(--pink-d);border-radius:30px;padding:4px 16px;font-weight:800;font-size:14px}
+.big-title{font-family:var(--hfont);font-weight:700;font-size:64px;line-height:1.1;margin:10px 0 0;
+  color:var(--pink-d);
+  text-shadow:3px 3px 0 #fff,-3px -3px 0 #fff,3px -3px 0 #fff,-3px 3px 0 #fff,0 3px 0 #fff,0 -3px 0 #fff,3px 0 0 #fff,-3px 0 0 #fff,
+    6px 8px 0 rgba(226,104,154,.28)}
+.big-title .b2{color:var(--leaf)}
+.sub{color:var(--muted);font-size:17px;font-weight:700;margin-top:2px}
+.sparkle{position:absolute;font-size:24px;animation:twinkle 2s ease-in-out infinite}
+@keyframes twinkle{0%,100%{transform:scale(.7) rotate(0);opacity:.5}50%{transform:scale(1.15) rotate(20deg);opacity:1}}
+
+/* picnic illustration */
+.picnic-ill{display:block;width:100%;max-width:520px;margin:6px auto 0}
+
+/* ===== polaroid stations ===== */
+.stations{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 8px}
+.pola{background:#fff;padding:9px 9px 12px;border-radius:6px;box-shadow:0 8px 18px rgba(91,54,70,.15);position:relative;text-align:center;transition:transform .25s}
+.pola:nth-child(1){transform:rotate(-4deg)}
+.pola:nth-child(2){transform:rotate(2deg) translateY(-6px)}
+.pola:nth-child(3){transform:rotate(-1.5deg)}
+.pola:hover{transform:rotate(0) scale(1.05)}
+.pola .ph{aspect-ratio:1;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:46px;position:relative;overflow:hidden}
+.pola .ph::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.45),transparent 50%)}
+.ph.g1{background:repeating-conic-gradient(var(--pink-l) 0 25%,#fff 0 50%) 0 0/22px 22px}
+.ph.g2{background:repeating-conic-gradient(#fff1c9 0 25%,#fff 0 50%) 0 0/22px 22px}
+.ph.g3{background:repeating-conic-gradient(#e6f2df 0 25%,#fff 0 50%) 0 0/22px 22px}
+.pola .num{position:absolute;top:-10px;left:-8px;width:30px;height:30px;border-radius:50%;background:var(--pink-d);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:0 2px 0 var(--pink-dd);z-index:2}
+.pola .cap{font-family:var(--hfont);font-size:16px;margin-top:8px;color:var(--ink)}
+.pola .cap small{display:block;font-family:'Tajawal';font-size:12px;color:var(--muted);margin-top:2px;line-height:1.4}
+
+/* ===== buttons ===== */
+.btns{display:flex;flex-direction:column;gap:14px;margin-top:20px}
+.btn-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.btn{
+  font-family:var(--hfont); font-size:22px; font-weight:700; position:relative;
+  border:none; border-radius:22px; padding:15px 20px; cursor:pointer;
+  background:linear-gradient(180deg,#f07fac,var(--pink-d)); color:#fff;
+  box-shadow:0 6px 0 var(--pink-dd), 0 12px 20px rgba(185,69,122,.25);
+  outline:2px dashed rgba(255,255,255,.75); outline-offset:-7px;
+  transition:transform .1s, box-shadow .1s;
+}
+.btn:hover{filter:brightness(1.04)}
+.btn:active{transform:translateY(5px);box-shadow:0 1px 0 var(--pink-dd)}
+.btn.sage{background:linear-gradient(180deg,#86c084,var(--sage-d));box-shadow:0 6px 0 #4c7f4d,0 12px 20px rgba(79,138,85,.22)}
+.btn.lav{background:linear-gradient(180deg,#b79be6,var(--lav-d));box-shadow:0 6px 0 #7559ad,0 12px 20px rgba(117,89,173,.22)}
+.btn.ghost{background:#fff;color:var(--pink-d);box-shadow:0 5px 0 var(--pink);outline-color:var(--pink)}
+.btn.small{font-size:15px;padding:8px 13px;border-radius:14px;box-shadow:0 3px 0 var(--pink-dd);outline-offset:-5px;outline-width:1.5px}
+.btn.small.sage{box-shadow:0 3px 0 #4c7f4d}
+.btn.small.ghost{box-shadow:0 3px 0 var(--pink)}
+.btn:disabled{opacity:.5;cursor:default}
+.btn .em{display:inline-block;animation:wig 1.6s ease-in-out infinite}
+@keyframes wig{0%,100%{transform:rotate(-10deg)}50%{transform:rotate(10deg)}}
+
+.status{font-size:13px;text-align:center;color:var(--muted);margin-top:16px;font-weight:700}
+
+/* ===== name tag ===== */
+.nametag{max-width:420px;margin:0 auto;border-radius:22px;overflow:hidden;background:#fff;box-shadow:0 10px 26px rgba(91,54,70,.15);border:3px solid var(--pink-d)}
+.nametag .top{background:var(--pink-d);color:#fff;text-align:center;padding:14px 10px 10px;
+  background-image:radial-gradient(rgba(255,255,255,.25) 2px,transparent 2.5px);background-size:14px 14px}
+.nametag .top h2{font-size:34px;line-height:1}
+.nametag .top div{font-weight:700;font-size:14px;opacity:.95;margin-top:2px}
+.nametag .body{padding:20px 18px 14px}
+input.txt{
+  width:100%;font-family:var(--hfont);font-size:30px;padding:8px 10px;border:none;
+  border-bottom:3px dashed var(--pink);background:transparent;color:var(--ink);outline:none;text-align:center
+}
+input.txt::placeholder{color:#e7c6d3}
+.lbl-mini{text-align:center;font-weight:800;margin:18px 0 6px;color:var(--muted);font-size:14px}
+.avatars{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.av{font-size:26px;aspect-ratio:1;border-radius:50%;background:var(--pink-l);border:3px solid #fff;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 0 #f1cfdc;transition:.15s}
+.av:hover{transform:translateY(-3px)}
+.av.sel{background:#fff;border-color:var(--pink-d);transform:scale(1.15) rotate(-6deg);box-shadow:0 4px 0 var(--pink-dd)}
+.err{color:var(--straw);font-weight:800;min-height:24px;margin-top:10px;text-align:center}
+
+/* ===== steps path ===== */
+.steps{display:flex;align-items:center;justify-content:center;gap:0;margin:0 auto 18px;max-width:360px}
+.st{width:48px;height:48px;border-radius:50%;background:#fff;border:3px dashed #e8c9d5;display:flex;align-items:center;justify-content:center;font-size:22px;filter:grayscale(1);opacity:.6;transition:.3s;flex-shrink:0}
+.st.done{filter:none;opacity:1;border-style:solid;border-color:var(--sage-d);background:#eef7ea}
+.st.cur{filter:none;opacity:1;border-style:solid;border-color:var(--pink-d);background:var(--pink-l);transform:scale(1.18);box-shadow:0 0 0 6px rgba(246,166,193,.3)}
+.ln{flex:1;height:0;border-top:3px dotted #e8c9d5}
+.ln.done{border-color:var(--sage-d)}
+
+/* ===== intro ===== */
+.intro{text-align:center}
+.intro .bigE{font-size:90px;display:inline-block;animation:bob 2s ease-in-out infinite;filter:drop-shadow(0 8px 0 rgba(226,104,154,.2))}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.intro h2{font-size:36px;color:var(--pink-d);margin-top:4px}
+.intro .desc{background:#fff;border-radius:18px;padding:14px;margin:12px auto 18px;max-width:440px;color:var(--ink);font-size:17px;line-height:1.9;border:2px dashed var(--pink)}
+
+/* ===== game header ===== */
+.ghead{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:8px;flex-wrap:wrap}
+.who-chip{display:flex;align-items:center;gap:8px;background:#fff;border-radius:30px;padding:4px 14px 4px 4px;font-weight:800;box-shadow:0 3px 0 #f1cfdc}
+.who-chip .face{width:34px;height:34px;border-radius:50%;background:var(--pink-l);display:flex;align-items:center;justify-content:center;font-size:20px}
+.chip{background:#fff;border-radius:30px;padding:6px 14px;font-weight:800;font-size:14px;box-shadow:0 3px 0 #f1cfdc;color:var(--muted)}
+.berry{position:relative;min-width:76px;height:50px;border-radius:26px;background:var(--straw);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;padding:0 14px;font-size:20px;font-family:var(--hfont);box-shadow:0 4px 0 #b73f4a;
+  background-image:radial-gradient(#ffe7a3 1.4px,transparent 1.8px);background-size:10px 10px}
+.berry::before{content:'🍃';position:absolute;top:-14px;font-size:18px}
+.station-title{font-size:28px;color:var(--pink-d);text-align:center}
+.timer{position:relative;height:16px;background:#fff;border-radius:12px;border:2px solid #f1cfdc;margin:14px 6px 22px}
+.timer>div{height:100%;border-radius:10px;background:repeating-linear-gradient(45deg,#8fca8c 0 10px,#a6d6a1 10px 20px);transition:width .1s linear}
+.timer .bee{position:absolute;top:-14px;font-size:26px;transition:right .1s linear;transform:scaleX(-1)}
+.bubble{background:#fff;border-radius:22px;padding:18px 16px;position:relative;margin-bottom:20px;box-shadow:0 4px 0 #f1cfdc;border:2px solid #f6dbe5}
+.bubble::after{content:'';position:absolute;bottom:-12px;right:50%;transform:translateX(50%) rotate(45deg);width:20px;height:20px;background:#fff;border-right:2px solid #f6dbe5;border-bottom:2px solid #f6dbe5}
+.q{font-size:22px;font-weight:800;text-align:center;line-height:1.6}
+.emojiQ{font-size:70px;text-align:center;letter-spacing:8px;margin-bottom:4px;animation:bob 2.4s ease-in-out infinite}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.opt{
+  display:flex;align-items:center;gap:10px;text-align:right;
+  font-family:inherit;font-size:17px;font-weight:800;padding:12px 12px;border-radius:18px;cursor:pointer;
+  background:#fff;color:var(--ink);border:2px solid #f6dbe5;box-shadow:0 4px 0 #f1cfdc;transition:.12s
+}
+.opt .lt{flex-shrink:0;width:34px;height:34px;border-radius:50%;background:var(--pink-l);color:var(--pink-d);display:flex;align-items:center;justify-content:center;font-family:var(--hfont);font-size:17px}
+.opt:hover:not(:disabled){transform:translateY(-2px);border-color:var(--pink)}
+.opt.ok{background:#e8f5e3;border-color:var(--sage-d);box-shadow:0 4px 0 var(--sage-d)}
+.opt.ok .lt{background:var(--sage-d);color:#fff}
+.opt.no{background:#fde7e9;border-color:var(--straw);box-shadow:0 4px 0 var(--straw);animation:shake .35s}
+.opt.no .lt{background:var(--straw);color:#fff}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.flash{text-align:center;font-size:22px;font-weight:800;min-height:34px;margin-top:14px;font-family:var(--hfont)}
+
+/* ===== memory ===== */
+.mem{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:440px;margin:0 auto}
+.mc{aspect-ratio:1;perspective:600px;cursor:pointer}
+.mc .in{width:100%;height:100%;position:relative;transition:transform .45s cubic-bezier(.3,1.4,.5,1);transform-style:preserve-3d}
+.mc.f .in,.mc.m .in{transform:rotateY(180deg)}
+.mc .fa{position:absolute;inset:0;border-radius:16px;backface-visibility:hidden;display:flex;align-items:center;justify-content:center;font-size:38px}
+.mc .bk{background:repeating-conic-gradient(#f39dbd 0 25%,#fbd3e1 0 50%) 0 0/18px 18px;border:4px solid #fff;box-shadow:0 4px 0 var(--pink-dd)}
+.mc .bk::after{content:'🧺';font-size:22px;background:#fff;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 0 #f1cfdc}
+.mc .fr{background:#fff;transform:rotateY(180deg);border:3px solid var(--pink);box-shadow:0 4px 0 #f1cfdc}
+.mc.m .fr{background:#eaf6e5;border-color:var(--sage-d);box-shadow:0 4px 0 var(--sage-d);animation:yay .5s}
+@keyframes yay{50%{transform:rotateY(180deg) scale(1.12)}}
+
+/* ===== result ===== */
+.result{text-align:center}
+.photo{display:inline-block;background:#fff;padding:12px 12px 16px;box-shadow:0 10px 24px rgba(91,54,70,.18);transform:rotate(-3deg);position:relative;margin-top:6px}
+.photo .ph{width:150px;height:150px;display:flex;align-items:center;justify-content:center;font-size:80px;background:repeating-conic-gradient(var(--pink-l) 0 25%,#fff 0 50%) 0 0/24px 24px}
+.photo .nm{font-family:var(--hfont);font-size:24px;margin-top:8px}
+.rosette{position:relative;width:170px;height:170px;margin:22px auto 6px}
+.rosette svg{position:absolute;inset:0;width:100%;height:100%;animation:spin 18s linear infinite}
+.rosette .ctr{position:absolute;inset:30px;border-radius:50%;background:#fff;border:4px dashed var(--pink);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.rosette .ctr span{font-size:13px;color:var(--muted);font-weight:800}
+.total{font-size:46px;color:var(--pink-d);font-family:var(--hfont);line-height:1}
+.breakdown{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0 6px}
+.breakdown div{background:#fff;border-radius:18px;padding:12px 4px;font-size:14px;font-weight:700;color:var(--muted);box-shadow:0 4px 0 #f1cfdc}
+.breakdown b{display:block;font-size:24px;color:var(--ink);font-family:var(--hfont)}
+.rankBadge{display:inline-block;background:var(--butter);color:#7a5600;font-weight:800;padding:8px 20px;border-radius:30px;font-size:19px;font-family:var(--hfont);box-shadow:0 4px 0 #e2c062;margin-top:4px}
+
+/* ===== board ===== */
+.banner{position:relative;z-index:1;margin:0 auto 6px;width:fit-content;background:var(--pink-d);color:#fff;font-family:var(--hfont);font-size:30px;padding:8px 40px;box-shadow:0 5px 0 var(--pink-dd)}
+.banner::before,.banner::after{content:'';position:absolute;top:10px;width:30px;height:100%;background:var(--pink-dd);z-index:-1}
+.banner::before{right:-22px;clip-path:polygon(0 0,100% 0,70% 50%,100% 100%,0 100%)}
+.banner::after{left:-22px;clip-path:polygon(0 0,100% 0,100% 100%,0 100%,30% 50%)}
+.board-tools{display:flex;justify-content:space-between;margin-bottom:6px}
+.podium{display:flex;align-items:flex-end;justify-content:center;gap:12px;margin:24px 0 24px}
+.pod{flex:1;max-width:190px;text-align:center}
+.pod .who{font-size:44px;width:76px;height:76px;margin:0 auto;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 0 #f1cfdc;border:4px solid #fff;position:relative}
+.pod.p1 .who{border-color:var(--gold);width:90px;height:90px;font-size:52px}
+.pod.p2 .who{border-color:var(--silver)}
+.pod.p3 .who{border-color:var(--bronze)}
+.pod.p1 .who::before{content:'👑';position:absolute;top:-30px;font-size:32px;animation:wig 2.5s infinite}
+.pod .nm{font-weight:800;font-size:18px;margin:8px 0 0;word-break:break-word;font-family:var(--hfont)}
+.pod .pts{white-space:pre-line;line-height:1.5;font-size:14px;color:var(--muted);margin-bottom:8px;font-weight:800}
+.pod .blk{position:relative;border-radius:10px 10px 4px 4px;display:flex;align-items:center;justify-content:center;font-size:40px;color:#fff;font-family:var(--hfont);text-shadow:0 2px 0 rgba(0,0,0,.12)}
+.pod .blk::before{content:'';position:absolute;top:-1px;left:0;right:0;height:22px;border-radius:10px 10px 0 0;
+  background:radial-gradient(circle at 10px 12px,#fff 9px,transparent 9.5px) 0 0/20px 22px repeat-x,linear-gradient(#fff,#fff) 0 0/100% 10px no-repeat}
+.pod .blk::after{content:'';position:absolute;bottom:0;left:0;right:0;height:10px;background:rgba(0,0,0,.08);border-radius:0 0 4px 4px}
+.pod.p1 .blk{height:150px;background:var(--gold)}
+.pod.p2 .blk{height:110px;background:#b8c2cf}
+.pod.p3 .blk{height:84px;background:var(--bronze)}
+.pod.empty{opacity:.35}
+.list{display:flex;flex-direction:column;gap:9px;filter:drop-shadow(0 3px 0 #f1cfdc)}
+.row{display:flex;align-items:center;gap:12px;background:#fff;padding:11px 22px;
+  -webkit-mask:radial-gradient(circle 10px at right center,#0000 97%,#000) right/51% 100% no-repeat,radial-gradient(circle 10px at left center,#0000 97%,#000) left/51% 100% no-repeat;
+          mask:radial-gradient(circle 10px at right center,#0000 97%,#000) right/51% 100% no-repeat,radial-gradient(circle 10px at left center,#0000 97%,#000) left/51% 100% no-repeat}
+.row.me{background:var(--pink-l)}
+.row .rk{width:34px;height:34px;border-radius:50%;background:var(--lav);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;font-family:var(--hfont)}
+.row .ra{font-size:26px}
+.row .rn{flex:1;font-weight:800;font-size:17px;word-break:break-word;border-left:2px dashed #f1cfdc;padding-left:8px}
+.row .rt{font-size:13px;font-weight:800;color:var(--muted);background:var(--pink-l);border-radius:20px;padding:3px 10px;white-space:nowrap}
+.row .rs{font-weight:800;color:var(--pink-d);font-size:20px;font-family:var(--hfont)}
+.empty-msg{text-align:center;color:var(--muted);padding:22px;font-size:17px;font-weight:700;background:#fff;border-radius:18px}
+.note{font-size:14px;color:var(--muted);text-align:center;margin-top:14px;font-weight:700}
+.big-mode .wrap{max-width:1100px}
+.big-mode .row .rn,.big-mode .row .rs{font-size:26px}
+.big-mode .pod .nm{font-size:28px}
+.big-mode .banner{font-size:44px}
+
+/* ===== live / lobby ===== */
+.banner.lavb::before,.banner.lavb::after{background:#7559ad}
+.live-pill{align-self:center;background:#fff;border:2px dashed var(--pink);color:var(--muted);font-weight:800;padding:6px 18px;border-radius:30px;font-size:15px}
+.live-pill.on{border-style:solid;border-color:var(--sage-d);color:var(--leaf);background:#eef7ea}
+.live-pill.on::before{content:'';display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--sage-d);margin-left:8px;animation:blink 1s infinite}
+@keyframes blink{50%{opacity:.2}}
+.dots{display:flex;justify-content:center;gap:14px;font-size:30px;margin:6px 0}
+.dots span{animation:bob 1.2s ease-in-out infinite}
+.dots span:nth-child(2){animation-delay:.2s}.dots span:nth-child(3){animation-delay:.4s}
+.countdown{font-family:var(--hfont);font-size:130px;color:var(--pink-d);line-height:1.1;animation:pop .5s}
+.host-panel{background:#fff;border-radius:22px;padding:18px;margin-top:18px;box-shadow:0 4px 0 #f1cfdc;text-align:center}
+.host-state{font-family:var(--hfont);font-size:22px;margin-bottom:12px;color:var(--muted)}
+.host-state.on{color:var(--leaf)}
+.lobby-title{font-family:var(--hfont);font-size:20px;margin:16px 0 8px;text-align:center}
+.lobby-title span{display:inline-block;background:var(--pink-d);color:#fff;border-radius:20px;padding:0 12px;font-size:16px;margin-right:6px}
+.lobby{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.lob{background:var(--pink-l);border-radius:30px;padding:6px 14px;font-weight:800;animation:pop .4s}
+.lob.playing{background:#fff1c9}
+
+/* ===== admin ===== */
+.arow{display:flex;align-items:center;gap:6px;background:#fff;border-radius:16px;padding:9px 12px;flex-wrap:wrap;box-shadow:0 3px 0 #f1cfdc}
+.arow .rn{flex:1;font-weight:800;min-width:110px}
+.arow .rs{font-weight:800;color:var(--pink-d);min-width:48px;text-align:center;font-family:var(--hfont);font-size:18px}
+.hint{background:#fff;border:2px dashed var(--lav);border-radius:16px;padding:12px 14px;color:var(--ink);margin:6px 0 14px;line-height:1.8;font-size:15px}
+.modal{position:fixed;inset:0;background:rgba(91,54,70,.4);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;z-index:50;padding:16px}
+.modal.on{display:flex}
+.modal .paper{max-width:380px;text-align:center}
+.modal p{font-size:19px;margin:6px 0 4px;line-height:1.7;font-weight:800}
+.modal .btn-row{margin-top:18px}
+
+.conf{position:fixed;top:-40px;font-size:26px;pointer-events:none;z-index:60;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(540deg)}}
+
+@media(max-width:520px){
+  .big-title{font-size:48px}
+  .stations{gap:10px}
+  .pola .ph{font-size:34px}
+  .pola .cap{font-size:13px}
+  .pola .cap small{display:none}
+  .opts{grid-template-columns:1fr}
+  .banner{font-size:24px;padding:8px 26px}
+  .pod .who{width:62px;height:62px;font-size:34px}
+  .pod.p1 .who{width:74px;height:74px;font-size:42px}
+  .paper{padding:28px 16px 22px}
+}
+</style>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+/* ======== 🔧 الإعدادات: الصقي هنا بيانات مشروعك من Firebase ======== */
+const FIREBASE_CONFIG = {
+  apiKey: "PASTE_HERE",
+  authDomain: "PASTE_HERE",
+  projectId: "PASTE_HERE",
+  storageBucket: "PASTE_HERE",
+  messagingSenderId: "PASTE_HERE",
+  appId: "PASTE_HERE"
+};
+/* رمز دخول صفحة المنظِّمة (#host) – غيّريه لرمز تعرفينه بس */
+const HOST_PIN = "1234";
+/* ================================================================ */
+</script>
+</head>
+<body>
+
+<!-- ===== background scene ===== -->
+<div class="scene" aria-hidden="true">
+  <div class="sun"></div>
+  <div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div>
+  <svg class="hills" viewBox="0 0 1200 220" preserveAspectRatio="none">
+    <path d="M0 120 Q 200 40 420 110 T 820 90 T 1200 80 V220 H0Z" fill="#cfe7c2"/>
+    <path d="M0 160 Q 260 90 560 150 T 1200 130 V220 H0Z" fill="#b2d8a2"/>
+    <path d="M0 195 Q 300 150 650 190 T 1200 180 V220 H0Z" fill="#98c98a"/>
+    <g font-size="20">
+      <text x="90" y="185">🌷</text><text x="300" y="170">🌼</text><text x="520" y="200">🌸</text>
+      <text x="760" y="175">🌷</text><text x="980" y="195">🌼</text><text x="1120" y="165">🌸</text>
+    </g>
+  </svg>
+  <div class="petal" style="left:15%;animation-duration:14s">🌸</div>
+  <div class="petal" style="left:45%;animation-duration:18s;animation-delay:-6s">🌸</div>
+  <div class="petal" style="left:75%;animation-duration:16s;animation-delay:-11s">🌸</div>
+  <div class="petal" style="left:90%;animation-duration:20s;animation-delay:-3s">🦋</div>
+</div>
+
+<!-- ===== bunting ===== -->
+<svg class="bunting" viewBox="0 0 1200 78" preserveAspectRatio="none" aria-hidden="true">
+  <defs>
+    <pattern id="dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="1.8" fill="#fff" opacity=".7"/></pattern>
+  </defs>
+  <path d="M0 8 Q 600 48 1200 8" stroke="#c98aa4" stroke-width="2.5" fill="none"/>
+  <g id="flags"></g>
+</svg>
+
+<div class="wrap">
+
+<!-- HOME -->
+<section class="screen on" id="s-home">
+  <div class="paper">
+    <span class="tape t1"></span><span class="tape t2"></span>
+    <div class="title-wrap">
+      <span class="sparkle" style="top:40px;right:6%">✨</span>
+      <span class="sparkle" style="top:90px;left:8%;animation-delay:.8s">💖</span>
+      <span class="kicker">🌸 نادي التقنية 🎀</span>
+      <h1 class="big-title">بكنك <span class="b2">البنات</span></h1>
+      <div class="sub">كشتة نادي التقنية ✨</div>
+    </div>
+
+    <svg class="picnic-ill" viewBox="0 0 520 200" aria-hidden="true">
+      <defs>
+        <pattern id="ging" width="26" height="26" patternUnits="userSpaceOnUse">
+          <rect width="26" height="26" fill="#fff"/>
+          <rect width="13" height="26" fill="#f6a6c1" opacity=".55"/>
+          <rect width="26" height="13" fill="#f6a6c1" opacity=".55"/>
+        </pattern>
+        <pattern id="weave" width="12" height="10" patternUnits="userSpaceOnUse">
+          <rect width="12" height="10" fill="#e1a96b"/>
+          <path d="M0 5 H12 M6 0 V5 M0 5 V10 M12 5 V10" stroke="#b97c43" stroke-width="1.6"/>
+        </pattern>
+      </defs>
+      <ellipse cx="260" cy="182" rx="230" ry="16" fill="#000" opacity=".06"/>
+      <path d="M70 120 L450 120 L500 180 L20 180 Z" fill="url(#ging)" stroke="#e2689a" stroke-width="2"/>
+      <path d="M20 180 L500 180" stroke="#e2689a" stroke-width="4" stroke-dasharray="2 8" stroke-linecap="round"/>
+      <!-- basket -->
+      <g transform="translate(205 62)">
+        <path d="M18 40 Q 55 -28 92 40" stroke="#b97c43" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <path d="M6 40 H104 L94 98 Q55 106 16 98 Z" fill="url(#weave)" stroke="#a46a35" stroke-width="2.5"/>
+        <rect x="2" y="34" width="106" height="12" rx="6" fill="#d39457" stroke="#a46a35" stroke-width="2.5"/>
+        <path d="M70 36 l18 -10 l-2 14 z" fill="#ea5a66"/><path d="M70 36 l-14 -12 l0 14 z" fill="#ea5a66"/>
+        <circle cx="70" cy="37" r="5" fill="#c9414e"/>
+        <path d="M24 38 q8 -14 22 -6" fill="#fff" stroke="#f6a6c1" stroke-width="2"/>
+      </g>
+      <g font-size="30">
+        <text x="95" y="160">🍓</text>
+        <text x="140" y="140">🧁</text>
+        <text x="340" y="150">☕</text>
+        <text x="395" y="168">🍉</text>
+        <text x="60" y="130" font-size="24">🌷</text>
+        <text x="430" y="132" font-size="24">🥐</text>
+        <text x="300" y="172" font-size="22">🍪</text>
+      </g>
+      <text x="458" y="70" font-size="26">🦋</text>
+      <text x="40" y="60" font-size="22">🦋</text>
+    </svg>
+
+    <div class="stations">
+      <div class="pola"><span class="num">١</span><div class="ph g1">🧺</div><div class="cap">فوازير البكنك<small>معلومات حلوة وغريبة</small></div></div>
+      <div class="pola"><span class="num">٢</span><div class="ph g2">🍰</div><div class="cap">خمّني الإيموجي<small>أكلات، مناسبات، أمثال</small></div></div>
+      <div class="pola"><span class="num">٣</span><div class="ph g3">🌸</div><div class="cap">ذاكرة البكنك<small>طابقي الكروت</small></div></div>
+    </div>
+
+    <div class="btns">
+      <div class="live-pill" id="livePill">⏳ اللعبة لسا ما بدأت</div>
+      <button class="btn" onclick="go('name')">ادخلي اللعبة <span class="em">🍓</span></button>
+      <button class="btn sage" onclick="go('board')">الترتيب 🏆</button>
+    </div>
+    <div class="status" id="dbStatus">⏳ جاري الاتصال…</div>
+  </div>
+</section>
+
+<!-- NAME -->
+<section class="screen" id="s-name">
+  <div class="paper">
+    <span class="tape t1 lav"></span><span class="tape t2"></span>
+    <div class="nametag">
+      <div class="top"><h2>هلا! 👋</h2><div>اسمي هو…</div></div>
+      <div class="body">
+        <input class="txt" id="pname" maxlength="24" placeholder="اكتبي اسمك" autocomplete="off">
+        <div class="lbl-mini">✿ اختاري شخصيتك ✿</div>
+        <div class="avatars" id="avatars"></div>
+      </div>
+    </div>
+    <div class="err" id="nameErr"></div>
+    <div class="btn-row" style="margin-top:6px">
+      <button class="btn ghost" onclick="go('home')">رجوع</button>
+      <button class="btn" onclick="startGame()">يلا نبدأ 🧺</button>
+    </div>
+  </div>
+</section>
+
+<!-- WAIT -->
+<section class="screen" id="s-wait">
+  <div class="paper intro">
+    <span class="tape t1 lav"></span><span class="tape t2 butter"></span>
+    <div class="photo" style="margin-bottom:10px"><div class="ph" id="wAv">🎀</div><div class="nm" id="wName"></div></div>
+    <div id="waitBox">
+      <h2>دخلتي! 💕</h2>
+      <div class="desc">استني لين تبدأ المنظِّمة اللعبة…<br>أول ما تضغط «ابدئي» تبدأ الجولة عندك على طول ✨</div>
+      <div class="dots"><span>🍓</span><span>🧁</span><span>🌸</span></div>
+      <div class="note" id="waitCount"></div>
+    </div>
+    <div id="countBox" style="display:none">
+      <h2>استعدّي!</h2>
+      <div class="countdown" id="countNum">3</div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="screen" id="s-intro">
+  <div class="paper intro">
+    <span class="tape t1 butter"></span><span class="tape t2"></span>
+    <div class="steps"></div>
+    <div class="bigE" id="inEmoji">🧺</div>
+    <h2 id="inTitle"></h2>
+    <div class="desc" id="inDesc"></div>
+    <button class="btn" id="inGo" style="width:100%">جاهزة! ✨</button>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="screen" id="s-quiz">
+  <div class="paper">
+    <span class="tape t1"></span><span class="tape t2 lav"></span>
+    <div class="ghead">
+      <span class="who-chip"><span class="face" id="qFace"></span><span id="qPlayer"></span></span>
+      <span class="chip" id="qCount"></span>
+      <span class="berry" id="qScore">0</span>
+    </div>
+    <div class="station-title" id="qStation"></div>
+    <div class="timer"><div id="qBar"></div><span class="bee" id="qBee">🐝</span></div>
+    <div class="bubble">
+      <div class="emojiQ" id="qEmoji" style="display:none"></div>
+      <div class="q" id="qText"></div>
+    </div>
+    <div class="opts" id="qOpts"></div>
+    <div class="flash" id="qFlash"></div>
+  </div>
+</section>
+
+<!-- MEMORY -->
+<section class="screen" id="s-mem">
+  <div class="paper">
+    <span class="tape t1 butter"></span><span class="tape t2"></span>
+    <div class="ghead">
+      <span class="who-chip"><span class="face" id="mFace"></span><span id="mPlayer"></span></span>
+      <span class="chip" id="mInfo">حركات: 0 · ⏱ 0ث</span>
+      <span class="berry" id="mScore">0</span>
+    </div>
+    <div class="station-title" style="margin-bottom:16px">🌸 ذاكرة البكنك</div>
+    <div class="mem" id="memGrid"></div>
+  </div>
+</section>
+
+<!-- RESULT -->
+<section class="screen" id="s-result">
+  <div class="paper result">
+    <span class="tape t1"></span><span class="tape t2 lav"></span>
+    <div class="photo"><span class="tape butter" style="top:-14px;right:50%;transform:translateX(50%) rotate(-3deg);width:80px"></span>
+      <div class="ph" id="rAv">🎀</div><div class="nm" id="rName"></div>
+    </div>
+    <div class="rosette">
+      <svg viewBox="0 0 170 170" aria-hidden="true"><g id="rosetteG"></g></svg>
+      <div class="ctr"><span>مجموعك</span><div class="total" id="rTotal">0</div></div>
+    </div>
+    <div id="rRank"></div>
+    <div class="breakdown">
+      <div>🧺 الفوازير<b id="rT">0</b></div>
+      <div>🍰 الإيموجي<b id="rE">0</b></div>
+      <div>🌸 الذاكرة<b id="rM">0</b></div>
+      <div style="grid-column:1/-1">⏱ وقت الحل<b id="rTime">0:00</b></div>
+    </div>
+    <div class="err" id="rSave"></div>
+    <div class="btn-row">
+      <button class="btn sage" onclick="go('board')">الترتيب 🏆</button>
+      <button class="btn" onclick="newPlayer()">لاعبة جديدة 💕</button>
+    </div>
+  </div>
+</section>
+
+<!-- BOARD -->
+<section class="screen" id="s-board">
+  <div class="paper">
+    <span class="tape t1 lav"></span><span class="tape t2 butter"></span>
+    <div class="board-tools">
+      <button class="btn small ghost" onclick="go('home')">🏠 الرئيسية</button>
+      <button class="btn small ghost" onclick="toggleBig()">🖥️ عرض كبير</button>
+    </div>
+    <div class="banner">🏆 لوحة الترتيب</div>
+    <div class="podium" id="podium"></div>
+    <div class="list" id="boardList"></div>
+    <div class="note" id="boardNote"></div>
+  </div>
+</section>
+
+<!-- ADMIN -->
+<section class="screen" id="s-admin">
+  <div class="paper">
+    <span class="tape t1"></span><span class="tape t2 lav"></span>
+    <div class="board-tools"><button class="btn small ghost" onclick="go('home')">🏠 الرئيسية</button><span></span></div>
+    <div class="banner lavb" style="background:var(--lav-d);box-shadow:0 5px 0 #7559ad">🎀 إعدادات اللعبة</div>
+    <div id="noAccess" class="empty-msg" style="display:none;margin-top:18px">
+      هالصفحة للمنظِّمة بس 🎀<br><br>
+      <input class="txt" id="pinIn" type="password" inputmode="numeric" placeholder="الرمز" style="max-width:220px;font-size:24px">
+      <div class="err" id="pinErr"></div>
+      <button class="btn" style="margin-top:8px" onclick="checkPin()">دخول 🔑</button>
+    </div>
+    <div id="adminBody">
+    <div class="host-panel">
+      <div class="host-state" id="hostState">⏳ اللعبة متوقفة</div>
+      <button class="btn" id="liveBtn" onclick="toggleLive()">ابدئي اللعبة 🚀</button>
+      <div class="lobby-title">البنات اللي بالانتظار <span id="lobbyCount">0</span></div>
+      <div class="lobby" id="lobbyList"></div>
+    </div>
+    <div class="lobby-title" style="margin-top:22px">النتائج</div>
+    <div class="hint">💡 أضيفي نقاط للتحديات الحيّة (أحلى لبس بكنك، أسرع وحدة تجيب شي…) أو احذفي لاعبة.</div>
+    <div class="list" id="adminList" style="filter:none"></div>
+    <div class="btns"><button class="btn ghost" onclick="askClear()">🗑️ جولة جديدة (مسح الكل)</button></div>
+    <div class="err" id="adminErr"></div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<div class="modal" id="modal">
+  <div class="paper">
+    <span class="tape t1"></span>
+    <div style="font-size:44px">🥺</div>
+    <p id="modalText"></p>
+    <div class="btn-row">
+      <button class="btn ghost" onclick="closeModal()">إلغاء</button>
+      <button class="btn" id="modalYes">أكيد</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------- data ---------- */
+const AVATARS = ['🎀','🌸','🍓','🧁','🦋','🌷','🍰','🐰','☕','🌼','🍑','💖'];
+
+const TRIVIA = [
+  {q:'كم قلب عند الأخطبوط؟ 🐙', a:['3','1','2','8']},
+  {q:'أي فاكهة بذورها من برّا؟', a:['الفراولة','الكيوي','البطيخ','التين']},
+  {q:'وش اللون اللي يطلع لو خلطتي الأحمر مع الأبيض؟', a:['وردي','بنفسجي','برتقالي','بيج']},
+  {q:'أي أكل ما يخرب أبداً حتى لو مرّت عليه سنين؟', a:['العسل','الشوكولاتة','الجبن','الخبز']},
+  {q:'الفلامنغو لونه وردي بسبب…؟ 🦩', a:['أكله','جيناته','الشمس','الماء']},
+  {q:'كم عدد ألوان قوس قزح؟ 🌈', a:['7','5','6','9']},
+  {q:'وش الحيوان اللي يقدر ينام وهو واقف؟', a:['الحصان','القطة','الأرنب','البطريق']},
+  {q:'زهرة دوّار الشمس الصغيرة تلف وجهها باتجاه…؟ 🌻', a:['الشمس','القمر','الريح','الماء']},
+  {q:'كم مرة ترمشين تقريباً باليوم؟ 👀', a:['أكثر من ١٠ آلاف مرة','١٠٠ مرة','٥٠٠ مرة','ألف مرة']},
+  {q:'التوليب أصله الحقيقي من وين؟ 🌷', a:['آسيا الوسطى','هولندا','فرنسا','إيطاليا']},
+  {q:'أي حيوان بصمة أنفه ما تتكرر مثل بصمة الإصبع؟', a:['الكلب','القطة','الزرافة','الأرنب']},
+  {q:'الموز يُعتبر علمياً…؟ 🍌', a:['توت','خضار','حبوب','مكسرات']},
+  {q:'كم عدد أسنان الإنسان البالغ عادةً؟', a:['32','28','30','36']},
+  {q:'أي طائر يقدر يطير لورا؟ 🐦', a:['الطنّان','الحمام','النسر','البومة']},
+  {q:'أي فاكهة تطفو على الماء لأن ربعها تقريباً هوا؟', a:['التفاح','البرتقال','العنب','المانجو']},
+  {q:'الفراشة تتذوق الأكل بـ…؟ 🦋', a:['رجولها','جناحها','قرون الاستشعار','عيونها']},
+  {q:'أي مدينة لقبها "عروس البحر الأحمر"؟', a:['جدة','ينبع','أملج','الوجه']},
+  {q:'وش الحيوان اللي يمسك يد صاحبه وهو نايم عشان ما يضيع؟', a:['ثعلب الماء','الباندا','الكوالا','البطريق']},
+  {q:'الفانيلا أصلها من نبات…؟', a:['الأوركيد','الورد','النعناع','القرفة']},
+  {q:'كم يوم تقريباً تعيش الفراشة؟', a:['أسابيع قليلة','سنة','شهور طويلة','يوم واحد بس']},
+];
+
+const EMOJI = [
+  {e:'🍚🍗🔥', a:['كبسة','مندي','برياني','مرقوق']},
+  {e:'🐦✋🆚🐦🐦🌳', a:['عصفور باليد ولا عشرة على الشجرة','الطيور على أشكالها تقع','الصبر مفتاح الفرج','اللي ما يعرف الصقر يشويه']},
+  {e:'☕🌴', a:['قهوة وتمر','شاي ونعناع','حليب وكعك','عصير وكيك']},
+  {e:'🌙🏮🍽️', a:['رمضان','العيد','عرس','عيد ميلاد']},
+  {e:'💍👰💃', a:['زواج','تخرج','ملكة جمال','حفلة شاي']},
+  {e:'🌧️🏕️🔥', a:['كشتة','رحلة بحر','نوم','تسوّق']},
+  {e:'🎂🕯️🎁', a:['عيد ميلاد','عيد الأم','حفلة تخرج','استقبال مولود']},
+  {e:'💅✨', a:['مناكير','مكياج','تسريحة','عطر']},
+  {e:'🌹🌵', a:['ما فيه ورد بلا شوك','الورد جميل','صحراء خضراء','شجرة ورد']},
+  {e:'🐪🏁', a:['سباق الهجن','سباق الخيل','رالي','ماراثون']},
+  {e:'🍯🐝🏠', a:['خلية نحل','بيت حلو','مطبخ','محل حلويات']},
+  {e:'🧕📸🌸', a:['سيلفي بالحديقة','عرض أزياء','تصوير زواج','صورة جواز']},
+  {e:'🕐💤🛏️', a:['قيلولة','سهر','صحيان بدري','سفر']},
+];
+
+const MEM_ICONS = ['🍓','🧁','🧺','🌸','🍉','🦋'];
+
+/* ---------- helpers ---------- */
+const $ = id => document.getElementById(id);
+const shuffle = arr => { const a=[...arr]; for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]} return a; };
+const norm = s => (s||'').trim().replace(/\s+/g,' ').toLowerCase();
+function go(name){
+  if(name!=='admin' && location.hash==='#host'){ try{ history.replaceState(null,'',location.pathname+location.search); }catch(e){} }
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('on'));
+  $('s-'+name).classList.add('on');
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(name==='board') renderBoard();
+  if(name==='admin'){ renderAdmin(); renderHost(); }
+  if(name==='name'){ $('nameErr').textContent=''; setTimeout(()=>$('pname').focus(),100); }
+}
+function confetti(n=40){
+  const items=['🌸','🍓','💖','✨','🎀','🦋','🧁'];
+  for(let i=0;i<n;i++){
+    const c=document.createElement('div'); c.className='conf';
+    c.textContent=items[i%items.length];
+    c.style.left=Math.random()*100+'vw';
+    c.style.animationDuration=(2.5+Math.random()*2.5)+'s';
+    c.style.animationDelay=(Math.random()*0.8)+'s';
+    document.body.appendChild(c); setTimeout(()=>c.remove(),6000);
+  }
+}
+function modal(text, onYes){
+  $('modalText').textContent=text; $('modal').classList.add('on');
+  $('modalYes').onclick=()=>{ closeModal(); onYes(); };
+}
+function closeModal(){ $('modal').classList.remove('on'); }
+function toggleBig(){ document.body.classList.toggle('big-mode'); }
+
+/* ---------- storage (db with local fallback) ---------- */
+let db=null, col=null, lobbyCol=null, players=[], canAdmin=false, adminKnown=false, mode='loading', lastSavedId=null;
+let liveOpen=false, lobby=[], myLobbyId=null, counting=false;
+const LS_LIVE='picnic_girls_live_v1';
+
+/* ---------- live state (host start button) ---------- */
+function loadLocalLive(){ try{ setLive(localStorage.getItem(LS_LIVE)==='1'); }catch(e){ setLive(false); } }
+function setLive(open){
+  liveOpen=open;
+  const pill=$('livePill');
+  pill.classList.toggle('on',open);
+  pill.textContent = open ? 'اللعبة شغّالة! ادخلي والعبي' : '⏳ اللعبة لسا ما بدأت';
+  renderHost();
+  if(open && $('s-wait').classList.contains('on') && G && !counting) beginCountdown();
+}
+async function toggleLive(){
+  const next=!liveOpen; $('liveBtn').disabled=true; $('adminErr').textContent='';
+  try{
+    if(mode==='db') await db.doc('live/state').set({open:next, at:Date.now()});
+    else { try{ localStorage.setItem(LS_LIVE, next?'1':'0'); }catch(e){} setLive(next); }
+    if(next) confetti(30);
+  }catch(e){ $('adminErr').textContent='ما قدرت أغيّر حالة اللعبة 😢'; }
+  $('liveBtn').disabled=false;
+}
+function renderHost(){
+  const st=$('hostState'), b=$('liveBtn');
+  st.classList.toggle('on',liveOpen);
+  st.textContent = liveOpen ? '🟢 اللعبة شغّالة الحين' : '⏳ اللعبة متوقفة – البنات بالانتظار';
+  b.textContent = liveOpen ? 'إيقاف اللعبة ⏸️' : 'ابدئي اللعبة 🚀';
+  b.className = 'btn' + (liveOpen ? ' ghost' : ' sage');
+}
+function renderLobby(){
+  const waiting=lobby.filter(l=>l.status!=='playing'), playing=lobby.filter(l=>l.status==='playing');
+  $('lobbyCount').textContent = lobby.length;
+  const box=$('lobbyList'); box.innerHTML='';
+  if(!lobby.length){ box.innerHTML='<div class="note" style="margin:0">ما فيه أحد دخل للحين</div>'; }
+  [...waiting,...playing].forEach(l=>{
+    const d=document.createElement('span'); d.className='lob'+(l.status==='playing'?' playing':'');
+    d.textContent=(l.avatar||'🎀')+' '+(l.name||'')+(l.status==='playing'?' · تلعب 🎮':'');
+    box.appendChild(d);
+  });
+  $('waitCount').textContent = waiting.length>1 ? `معك ${waiting.length-1} بنات ثانيات بالانتظار 💕` : '';
+}
+async function lobbyJoin(){
+  if(mode!=='db') return;
+  try{ const ref=lobbyCol.doc(); await ref.set({name:G.name, avatar:G.avatar, status:'waiting', at:Date.now()}); myLobbyId=ref.id; }catch(e){ myLobbyId=null; }
+}
+async function lobbySet(status){
+  if(!myLobbyId) return;
+  try{ if(status==='done'){ await lobbyCol.doc(myLobbyId).delete(); myLobbyId=null; } else await lobbyCol.doc(myLobbyId).update({status}); }catch(e){}
+}
+function beginCountdown(){
+  counting=true;
+  $('waitBox').style.display='none'; $('countBox').style.display='';
+  let n=3; $('countNum').textContent=n;
+  const t=setInterval(()=>{
+    n--;
+    if(n>0){ $('countNum').textContent=n; $('countNum').style.animation='none'; void $('countNum').offsetWidth; $('countNum').style.animation=''; }
+    else { clearInterval(t); counting=false; lobbySet('playing');
+      showIntro('🧺','المحطة ١: فوازير البكنك','٦ فوازير خفيفة ومعلومات غريبة، عندك ١٥ ثانية لكل وحدة.<br>الإجابة الصحيحة = ١٠٠ نقطة + بونص على السرعة ⚡', ()=>runQuiz('trivia')); }
+  },900);
+}
+
+/* ---------- hidden host page: link ending in #host ---------- */
+function route(){
+  if(location.hash!=='#host') return;
+  if(!adminKnown) return;
+  $('noAccess').style.display = canAdmin ? 'none' : '';
+  $('adminBody').style.display = canAdmin ? '' : 'none';
+  go('admin');
+}
+window.addEventListener('hashchange', route);
+const LS_KEY='picnic_girls_players_v1';
+
+// ranking: more points first; if equal, less solving time first
+const timeOf = p => (typeof p.playSecs==='number' ? p.playSecs : 1e9);
+function rankCmp(a,b){ return ((b.score||0)-(a.score||0)) || (timeOf(a)-timeOf(b)) || ((a.createdAt||0)-(b.createdAt||0)); }
+function fmtTime(sec){ if(typeof sec!=='number') return ''; const m=Math.floor(sec/60), s2=sec%60; return m+':'+String(s2).padStart(2,'0'); }
+function setPlayers(list){
+  players = list.sort(rankCmp);
+  if($('s-board').classList.contains('on')) renderBoard();
+  if($('s-admin').classList.contains('on')) renderAdmin();
+}
+function loadLocal(){
+  let list=[]; try{ list=JSON.parse(localStorage.getItem(LS_KEY)||'[]'); }catch(e){}
+  setPlayers(list);
+}
+function saveLocalAll(){ try{ localStorage.setItem(LS_KEY, JSON.stringify(players)); }catch(e){} }
+
+async function initStore(){
+  try{ canAdmin = sessionStorage.getItem('picnic_host_ok')==='1'; }catch(e){}
+  adminKnown=true;
+  const configured = FIREBASE_CONFIG.projectId && FIREBASE_CONFIG.projectId!=='PASTE_HERE' && window.firebase;
+  if(!configured){
+    mode='local'; loadLocal(); loadLocalLive();
+    $('dbStatus').textContent='📱 Firebase مو مربوط – النتائج محفوظة على هذا الجهاز فقط';
+    route(); return;
+  }
+  firebase.initializeApp(FIREBASE_CONFIG);
+  db = firebase.firestore();
+  mode='db';
+  col = db.collection('players');
+  lobbyCol = db.collection('lobby');
+  db.doc('live/state').onSnapshot(sn=>{ setLive(!!(sn.exists && sn.data().open)); }, ()=>{});
+  lobbyCol.onSnapshot(sn=>{ lobby=sn.docs.map(d=>({id:d.id,...d.data()})); renderLobby(); }, ()=>{});
+  let loaded=false;
+  const timer=setTimeout(()=>{ if(!loaded) $('dbStatus').textContent='⚠️ ما قدرنا نوصل لـ Firebase… تأكدي من النت'; },10000);
+  col.orderBy('score','desc').limit(500).onSnapshot(snap=>{
+    if(!snap.metadata.fromCache){ loaded=true; clearTimeout(timer); $('dbStatus').textContent='💖 متصلة – الترتيب مباشر للكل'; }
+    setPlayers(snap.docs.map(d=>({id:d.id, ...d.data()})));
+  }, err=>{
+    clearTimeout(timer); loaded=true;
+    $('dbStatus').textContent='⚠️ ما قدرنا نقرأ البيانات (تأكدي من قواعد Firestore)';
+  });
+  route();
+}
+function checkPin(){
+  if($('pinIn').value.trim()===HOST_PIN){
+    canAdmin=true; try{ sessionStorage.setItem('picnic_host_ok','1'); }catch(e){}
+    $('pinErr').textContent=''; route();
+  } else { $('pinErr').textContent='الرمز غلط 🙈'; }
+}
+
+async function savePlayer(rec){
+  if(mode==='db'){
+    const ref = col.doc();
+    await ref.set(rec);
+    return ref.id;
+  } else {
+    rec.id = 'p'+Date.now()+Math.random().toString(36).slice(2,6);
+    players.push(rec); saveLocalAll(); setPlayers(players);
+    return rec.id;
+  }
+}
+async function updatePlayer(id, patch){
+  if(mode==='db'){ await col.doc(id).update(patch); }
+  else { const p=players.find(x=>x.id===id); Object.assign(p,patch); saveLocalAll(); setPlayers(players); }
+}
+async function deletePlayer(id){
+  if(mode==='db'){ await col.doc(id).delete(); }
+  else { players=players.filter(x=>x.id!==id); saveLocalAll(); setPlayers(players); }
+}
+
+/* ---------- player setup ---------- */
+let avatar=AVATARS[0];
+function buildAvatars(){
+  const box=$('avatars'); box.innerHTML='';
+  AVATARS.forEach(a=>{
+    const b=document.createElement('button'); b.className='av'+(a===avatar?' sel':''); b.textContent=a; b.type='button';
+    b.onclick=()=>{ avatar=a; buildAvatars(); };
+    box.appendChild(b);
+  });
+}
+$('pname').addEventListener('keydown',e=>{ if(e.key==='Enter') startGame(); });
+
+let G=null; // current game state
+function startGame(){
+  const name=$('pname').value.trim().replace(/\s+/g,' ');
+  if(!name){ $('nameErr').textContent='اكتبي اسمك أول 🌸'; return; }
+  if(players.some(p=>norm(p.name)===norm(name))){ $('nameErr').textContent='هالاسم لعب قبل! أضيفي حرف أو اسم العائلة 💕'; return; }
+  if(lobby.some(l=>norm(l.name)===norm(name))){ $('nameErr').textContent='فيه وحدة بنفس الاسم داخلة الحين! غيّري شوي 💕'; return; }
+  G={ name, avatar, trivia:0, emoji:0, memory:0, start:Date.now(), timeMs:0 };
+  $('wAv').textContent=avatar; $('wName').textContent=name;
+  $('waitBox').style.display=''; $('countBox').style.display='none';
+  go('wait');
+  lobbyJoin();
+  if(liveOpen) beginCountdown();
+}
+const STEP_ICONS=['🧺','🍰','🌸'];
+function setSteps(cur){
+  document.querySelectorAll('.steps').forEach(box=>{
+    box.innerHTML='';
+    STEP_ICONS.forEach((ic,i)=>{
+      if(i){ const l=document.createElement('div'); l.className='ln'+(i<=cur?' done':''); box.appendChild(l); }
+      const d=document.createElement('div'); d.className='st'+(i<cur?' done':i===cur?' cur':''); d.textContent=i<cur?'✓':ic; box.appendChild(d);
+    });
+  });
+}
+function showIntro(emoji,title,desc,next){
+  setSteps(STEP_ICONS.indexOf(emoji));
+  $('inEmoji').textContent=emoji; $('inTitle').textContent=title; $('inDesc').innerHTML=desc;
+  $('inGo').onclick=next; go('intro');
+}
+function total(){ return G.trivia+G.emoji+G.memory; }
+
+/* ---------- quiz rounds ---------- */
+let Q=null, tick=null;
+function runQuiz(kind){
+  const isT = kind==='trivia';
+  const pool = isT ? shuffle(TRIVIA).slice(0,6) : shuffle(EMOJI).slice(0,5);
+  Q={kind, pool, i:0, secs: isT?15:12, base: isT?100:80, bonus: isT?50:40};
+  $('qStation').textContent = isT ? '🧺 فوازير البكنك' : '🍰 خمّني الإيموجي';
+  $('qPlayer').textContent = G.name; $('qFace').textContent = G.avatar; setSteps(Q.kind==='trivia'?0:1);
+  go('quiz'); showQ();
+}
+function showQ(){
+  const item=Q.pool[Q.i], isT=Q.kind==='trivia';
+  $('qCount').textContent=`سؤال ${Q.i+1} من ${Q.pool.length}`;
+  $('qScore').textContent=total()+' ✨';
+  $('qFlash').textContent='';
+  if(isT){ $('qEmoji').style.display='none'; $('qText').textContent=item.q; }
+  else { $('qEmoji').style.display=''; $('qEmoji').textContent=item.e; $('qText').textContent='وش يقصد الإيموجي؟ 🤔'; }
+  const correct=item.a[0];
+  const box=$('qOpts'); box.innerHTML='';
+  const LET=['أ','ب','ج','د'];
+  shuffle(item.a).forEach((txt,k)=>{
+    const b=document.createElement('button'); b.className='opt'; b.dataset.ok = txt===correct ? '1':'';
+    const lt=document.createElement('span'); lt.className='lt'; lt.textContent=LET[k];
+    const tx=document.createElement('span'); tx.textContent=txt;
+    b.append(lt,tx);
+    b.onclick=()=>answer(b);
+    box.appendChild(b);
+  });
+  const t0=Date.now(), dur=Q.secs*1000; Q.t0=t0; Q.dur=dur;
+  clearInterval(tick);
+  $('qBar').style.width='100%';
+  tick=setInterval(()=>{
+    const left=Math.max(0,dur-(Date.now()-t0));
+    $('qBar').style.width=(left/dur*100)+'%'; $('qBee').style.right='calc('+(left/dur*100)+'% - 16px)';
+    Q.left=left/dur;
+    if(left<=0){ clearInterval(tick); answer(null); }
+  },100);
+  Q.left=1;
+}
+function answer(btn){
+  clearInterval(tick);
+  G.timeMs += Math.min(Q.dur, Date.now()-Q.t0);
+  const btns=[...$('qOpts').children];
+  btns.forEach(b=>{ b.disabled=true; if(b.dataset.ok) b.classList.add('ok'); });
+  let gained=0;
+  if(btn && btn.dataset.ok){
+    gained = Q.base + Math.round(Q.left*Q.bonus);
+    $('qFlash').textContent=`صح! +${gained} 💖`; $('qFlash').style.color='var(--sage-d)';
+  } else if(btn){
+    btn.classList.add('no'); $('qFlash').textContent='أووه قريبة 🥲'; $('qFlash').style.color='var(--straw)';
+  } else {
+    $('qFlash').textContent='خلص الوقت ⏰'; $('qFlash').style.color='var(--straw)';
+  }
+  G[Q.kind]+=gained;
+  $('qScore').textContent=total()+' ✨';
+  setTimeout(()=>{
+    Q.i++;
+    if(Q.i<Q.pool.length) showQ();
+    else if(Q.kind==='trivia')
+      showIntro('🍰','المحطة ٢: خمّني الإيموجي','بنعطيك إيموجيات، وأنتِ خمّني وش تقصد: أكلة، مناسبة، أو مثل شعبي!<br>٥ أسئلة · ١٢ ثانية لكل سؤال 🤔', ()=>runQuiz('emoji'));
+    else
+      showIntro('🌸','المحطة ٣: ذاكرة البكنك','اقلبي الكروت وطابقي كل زوجين متشابهين.<br>كل ما قلّت حركاتك ووقتك زادت نقاطك 🧠', runMemory);
+  },1200);
+}
+
+/* ---------- memory ---------- */
+let M=null, mTick=null;
+function runMemory(){
+  M={cards:shuffle([...MEM_ICONS,...MEM_ICONS]), open:[], matched:0, moves:0, t0:Date.now(), lock:false};
+  $('mPlayer').textContent=G.name; $('mFace').textContent=G.avatar;
+  $('mScore').textContent=total()+' ✨';
+  const grid=$('memGrid'); grid.innerHTML='';
+  M.cards.forEach((ic,idx)=>{
+    const c=document.createElement('div'); c.className='mc';
+    c.innerHTML='<div class="in"><div class="fa bk"></div><div class="fa fr"></div></div>';
+    c.querySelector('.fr').textContent=ic;
+    c.onclick=()=>flip(c,idx);
+    grid.appendChild(c);
+  });
+  clearInterval(mTick);
+  mTick=setInterval(updMemInfo,500); updMemInfo();
+  go('mem');
+}
+function updMemInfo(){ $('mInfo').textContent=`حركات: ${M.moves} · ⏱ ${Math.floor((Date.now()-M.t0)/1000)}ث`; }
+function flip(c,idx){
+  if(M.lock || c.classList.contains('f') || c.classList.contains('m')) return;
+  c.classList.add('f'); M.open.push({c,idx});
+  if(M.open.length===2){
+    M.moves++; updMemInfo();
+    const [a,b]=M.open;
+    if(M.cards[a.idx]===M.cards[b.idx]){
+      setTimeout(()=>{ a.c.classList.add('m'); b.c.classList.add('m'); },250);
+      M.open=[]; M.matched++;
+      if(M.matched===MEM_ICONS.length) setTimeout(finishMemory,700);
+    } else {
+      M.lock=true;
+      setTimeout(()=>{ a.c.classList.remove('f'); b.c.classList.remove('f'); M.open=[]; M.lock=false; },800);
+    }
+  }
+}
+function finishMemory(){
+  clearInterval(mTick);
+  const secs=Math.floor((Date.now()-M.t0)/1000);
+  G.memory=Math.max(60, 400 - (M.moves-MEM_ICONS.length)*12 - secs*2);
+  G.memSecs=secs; G.memMoves=M.moves; G.timeMs += Date.now()-M.t0;
+  finishGame();
+}
+
+/* ---------- finish ---------- */
+async function finishGame(){
+  const rec={
+    name:G.name, avatar:G.avatar,
+    trivia:G.trivia, emoji:G.emoji, memory:G.memory, bonus:0,
+    score:total(), createdAt:Date.now(),
+    playSecs:Math.round(G.timeMs/1000)
+  };
+  $('rAv').textContent=G.avatar; $('rName').textContent=G.name;
+  $('rT').textContent=G.trivia; $('rE').textContent=G.emoji; $('rM').textContent=G.memory; $('rTime').textContent=fmtTime(rec.playSecs);
+  $('rRank').innerHTML=''; $('rSave').textContent='⏳ جاري حفظ نتيجتك…'; $('rSave').style.color='var(--muted)';
+  go('result'); animateNum($('rTotal'), rec.score); confetti(50);
+  try{
+    lastSavedId = await savePlayer(rec);
+    lobbySet('done');
+    $('rSave').textContent='';
+    // rank based on current list + this record
+    const list=[...players.filter(p=>p.id!==lastSavedId), {...rec,id:lastSavedId}]
+      .sort(rankCmp);
+    const r=list.findIndex(p=>p.id===lastSavedId)+1;
+    const medal = r===1?'🥇':r===2?'🥈':r===3?'🥉':'🌸';
+    const span=document.createElement('span'); span.className='rankBadge';
+    span.textContent=`${medal} مركزك الحالي: ${r} من ${list.length}`;
+    $('rRank').appendChild(span);
+  }catch(e){
+    $('rSave').style.color='var(--straw)';
+    $('rSave').textContent = (e && e.code==='invalid_argument')
+      ? 'ما قدرنا نحفظ نتيجتك 😢 تأكدي من قواعد Firestore'
+      : 'صار خطأ بالحفظ 😢 جربي مرة ثانية';
+  }
+}
+function animateNum(el,to){
+  const t0=performance.now();
+  (function f(t){ const p=Math.min(1,(t-t0)/1200); el.textContent=Math.round(to*(1-Math.pow(1-p,3))); if(p<1) requestAnimationFrame(f); })(t0);
+}
+function newPlayer(){ $('pname').value=''; avatar=AVATARS[Math.floor(Math.random()*AVATARS.length)]; buildAvatars(); go('name'); }
+
+/* ---------- board ---------- */
+function renderBoard(){
+  const pod=$('podium'); pod.innerHTML='';
+  const order=[1,0,2]; // 2nd, 1st, 3rd
+  order.forEach(i=>{
+    const p=players[i]; const d=document.createElement('div');
+    d.className='pod p'+(i+1)+(p?'':' empty');
+    const who=document.createElement('div'); who.className='who'; who.textContent=p?(p.avatar||'🎀'):'❔';
+    const nm=document.createElement('div'); nm.className='nm'; nm.textContent=p?p.name:'—';
+    const pts=document.createElement('div'); pts.className='pts'; pts.textContent=p?(p.score+' نقطة\n⏱ '+fmtTime(p.playSecs)):'';
+    const blk=document.createElement('div'); blk.className='blk'; blk.textContent=i+1;
+    d.append(who,nm,pts,blk); pod.appendChild(d);
+  });
+  const list=$('boardList'); list.innerHTML='';
+  if(!players.length){ list.innerHTML='<div class="empty-msg">ما فيه نتائج للحين… مين أول وحدة بتلعب؟ 🧺</div>'; }
+  players.slice(3).forEach((p,k)=>{
+    const r=document.createElement('div'); r.className='row'+(p.id===lastSavedId?' me':'');
+    const rk=document.createElement('div'); rk.className='rk'; rk.textContent=k+4;
+    const ra=document.createElement('div'); ra.className='ra'; ra.textContent=p.avatar||'🎀';
+    const rn=document.createElement('div'); rn.className='rn'; rn.textContent=p.name;
+    const rs=document.createElement('div'); rs.className='rs'; rs.textContent=p.score;
+    const rt=document.createElement('div'); rt.className='rt'; rt.textContent='⏱ '+fmtTime(p.playSecs);
+    r.append(rk,ra,rn,rt,rs); list.appendChild(r);
+  });
+  $('boardNote').textContent = players.length ? `عدد اللاعبات: ${players.length} 💕` : '';
+}
+
+/* ---------- admin ---------- */
+function renderAdmin(){
+  const list=$('adminList'); list.innerHTML='';
+  if(!players.length){ list.innerHTML='<div class="empty-msg">ما فيه لاعبات للحين</div>'; return; }
+  players.forEach((p,k)=>{
+    const r=document.createElement('div'); r.className='arow';
+    const rn=document.createElement('div'); rn.className='rn'; rn.textContent=`${k+1}. ${p.avatar||''} ${p.name}`;
+    const rs=document.createElement('div'); rs.className='rs'; rs.textContent=p.score;
+    r.append(rn,rs);
+    [[50,'+50'],[10,'+10'],[-10,'−10']].forEach(([v,l])=>{
+      const b=document.createElement('button'); b.className='btn small'+(v<0?' ghost':' sage'); b.textContent=l;
+      b.onclick=()=>adjust(p,v,b); r.appendChild(b);
+    });
+    const del=document.createElement('button'); del.className='btn small ghost'; del.textContent='🗑️';
+    del.onclick=()=>modal(`تحذفين نتيجة "${p.name}"؟`, async()=>{ try{ await deletePlayer(p.id); }catch(e){ $('adminErr').textContent='ما قدرت أحذف 😢'; } });
+    r.appendChild(del);
+    list.appendChild(r);
+  });
+}
+async function adjust(p,v,btn){
+  btn.disabled=true; $('adminErr').textContent='';
+  try{
+    const bonus=(p.bonus||0)+v;
+    const score=(p.trivia||0)+(p.emoji||0)+(p.memory||0)+bonus;
+    await updatePlayer(p.id,{bonus,score});
+  }catch(e){ $('adminErr').textContent='ما قدرت أعدّل النقاط 😢'; }
+  btn.disabled=false;
+}
+function askClear(){
+  modal('تمسحين كل النتائج؟ ما تقدرين ترجعينها 🥺', async()=>{
+    $('adminErr').textContent='⏳ جاري المسح…';
+    try{
+      for(const p of [...players]){ await deletePlayer(p.id); }
+      if(mode==='db'){ for(const l of [...lobby]){ await lobbyCol.doc(l.id).delete(); } }
+      if(liveOpen) await toggleLive();
+      $('adminErr').textContent='تم المسح ✨ جاهزة لجولة جديدة';
+    }
+    catch(e){ $('adminErr').textContent='ما قدرت أمسح الكل 😢'; }
+  });
+}
+
+/* ---------- boot ---------- */
+function buildDecor(){
+  const cols=['#f6a6c1','#b7d8a8','#d6c4f3','#ffe7a3','#ffc9a9'];
+  const g=document.getElementById('flags'); let h='';
+  const n=22;
+  for(let i=0;i<n;i++){
+    const x=(i+0.5)*1200/n, t=x/1200, y=8+ (1-Math.pow(2*t-1,2))*20*1 ;
+    const c=cols[i%cols.length];
+    h+=`<g transform="translate(${x} ${y})"><path d="M-22 0 L22 0 L0 40 Z" fill="${c}"/><path d="M-22 0 L22 0 L0 40 Z" fill="url(#dots)"/></g>`;
+  }
+  g.innerHTML=h;
+  const r=document.getElementById('rosetteG'); let p='';
+  for(let i=0;i<16;i++){ const a=i*22.5; p+=`<ellipse cx="85" cy="30" rx="16" ry="30" fill="${i%2?'#f6a6c1':'#fde3ec'}" stroke="#e2689a" stroke-width="1.5" transform="rotate(${a} 85 85)"/>`; }
+  r.innerHTML=p;
+}
+buildDecor();
+buildAvatars();
+renderHost(); renderLobby();
+initStore();
+</script>
+</body>
+</html>
